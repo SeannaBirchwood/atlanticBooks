@@ -1,0 +1,51 @@
+<section class="users-show">
+
+  <header class="page-header">
+    <h1><%= link_to @user.genre.name, @user.genre %> &raquo; <%= @user.name %></h1>
+  </header>
+
+  <article class="user-detail">
+
+    <div class="row">
+
+      <div class="col-sm-4">
+        <%= image_tag @user.image.url, class: 'main-img' %>
+      </div>
+
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
+          <dt>Name</dt>
+          <dd><%= @user.username %></dd>
+          <dt>Description</dt>
+          <dd><%= @user.location %></dd>
+          <dt>Quantity</dt>
+          <dd><%= @user.bookclub %></dd>
+          <dt>Price</dt>
+          <dd><%= @user.wishlist %></dd>
+
+
+        </dl>
+      </div>
+          <% if current_user %>
+            <div>
+              <%= form_for [@user, @location] do |f| %>
+              <%= f.text_area :content %>
+              <%= f.select :rating, options_for_select([[1], [2], [3], [4], [5]]) %> Stars
+              <%= f.submit "Create"%>
+              <% end %>
+            </div>
+          <% else %>
+            <span>
+              <%= link_to 'Login', '/login' %> or <%= link_to 'Signup', '/signup' %> to write a review.
+            </span>
+          <% end %>
+      <div class="col-sm-8">
+        <dl class="dl-vertical">
+          <dd><%= render "users" %></dd>
+        </dl>
+      </div>
+
+
+  </article>
+
+</section>

@@ -1,0 +1,52 @@
+<section class="books-show">
+
+  <header class="page-header">
+    <h1><%= link_to @book.genre.name, @book.genre %> &raquo; <%= @book.name %></h1>
+  </header>
+
+  <article class="book-detail">
+
+    <div class="row">
+
+      <div class="col-sm-4">
+        <%= image_tag @book.image.url, class: 'main-img' %>
+      </div>
+
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
+          <dt>Name</dt>
+          <dd><%= @book.name %></dd>
+          <dt>Description</dt>
+          <dd><%= @book.description %></dd>
+          <dt>Quantity</dt>
+          <dd><%= @product.author %></dd>
+          <dt>Price</dt>
+          <dd><%= @product.publish_date %></dd>
+          <dt>Avg. Rating</dt>
+          <dd><%=@book.average_rating %></dd>
+
+        </dl>
+      </div>
+          <% if current_user %>
+            <div>
+              <%= form_for [@book, @review] do |f| %>
+              <%= f.text_area :content %>
+              <%= f.select :rating, options_for_select([[1], [2], [3], [4], [5]]) %> Stars
+              <%= f.submit "Create"%>
+              <% end %>
+            </div>
+          <% else %>
+            <span>
+              <%= link_to 'Login', '/login' %> or <%= link_to 'Signup', '/signup' %> to write a review.
+            </span>
+          <% end %>
+      <div class="col-sm-8">
+        <dl class="dl-vertical">
+          <dd><%= render "books" %></dd>
+        </dl>
+      </div>
+
+
+  </article>
+
+</section>

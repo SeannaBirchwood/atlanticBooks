@@ -1,5 +1,5 @@
 class Book < ActiveRecord::Base
-  belongs_to :author
+  #belongs_to :author
 
   has_one :pub_date
   has_many :genre

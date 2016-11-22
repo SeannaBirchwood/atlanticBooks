@@ -1,17 +1,22 @@
 # README
 
-# Atlantic Books Gift Guide 
+# Atlantic Books Gift Guide
 (working title)
 
 This app will be designed to allow readers to explore Atlantic Canadian books, booksellers, and bookclubs.
 
+Ruby version: 2.3.0 (x86_64-linux)
+
+Rails version: 5.0.0.1
+
+
+
+(out of the box notes below)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
-
-* Ruby version
 
 * System dependencies
 

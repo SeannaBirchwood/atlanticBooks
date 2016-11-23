@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Atlantic Books Gift Guide</a>
+    </div>
+    <div class="user-info"></div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to 'Home',:root %>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Books
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>Recent Releases</li>
+            <li>Atlantic Staples</li>
+            <li>Highly Rated</li>
+          </ul>
+        </li>
+        <li>
+          <% if current_user %>
+          Signed in as <%= current_user.first_name %><%= link_to "Logout", '/logout'%>
+        </li>
+        <li>
+          <% else %>
+          <%= link_to 'Login', '/login' %><%= link_to "Register", '/signup'%>
+          <% end %>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="text-danger"><%= fa_icon 'lock', text: current_user.username %><span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>Wishlist</li>
+            <li>Ownedlist</li>
+            <li>Bookclubs</li>
+            <li>Friends</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

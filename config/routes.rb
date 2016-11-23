@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   get '/index' => 'books#index'
   get '/users/index' => 'users#index'
   get '/users/:user_id/profile' => 'users#profile'
+  get '/users/register' => 'users#new'
+  get '/login' => 'sessions#new'
+
+  post '/users' => 'users#index'
 
   #currently nonexistant
-  get '/signup' => 'users#new'
-  get '/login' => 'sessions#new'
   get '/logout' => 'sessions#destroy'
 
   post 'login' => 'sessions#create'

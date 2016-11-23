@@ -1,15 +1,14 @@
+<h1> This is a partial placeholder for the user index, where we loop through
+  all available users</h1>
+
 <article class="user">
   <header>
-    <%= link_to users_profile_path do %>
+    <%= link_to user do %>
       <%= image_tag user.avatar, alt: user.username %>
       <h4><%= user.username %></h4>
     <% end %>
   </header>
-  <p class="description">
+  <p class="location">
     <%= user.location %>
   </p>
-
-  <aside class="price">
-    <%= user.wishlist %>
-  </aside>
 </article>

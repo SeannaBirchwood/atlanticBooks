@@ -22,6 +22,7 @@ User.destroy_all
 User.create!({
   username: Faker::App.name,
   email: Faker::Internet.email,
+  password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
   location: Faker::Address.city,
   bookclub: Faker::Pokemon.name,
@@ -32,6 +33,7 @@ User.create!({
 User.create!({
   username: Faker::App.name,
   email: Faker::Internet.email,
+  password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
   location: Faker::Address.city,
   bookclub: Faker::Pokemon.name,
@@ -42,6 +44,7 @@ User.create!({
 User.create!({
   username: Faker::App.name,
   email: Faker::Internet.email,
+  password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
   location: Faker::Address.city,
   bookclub: Faker::Pokemon.name,

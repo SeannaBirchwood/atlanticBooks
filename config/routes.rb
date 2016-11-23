@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/index' => 'books#index'
   get '/users/index' => 'users#index'
   get '/users/:user_id/profile' => 'users#profile'
+  get '/users/profile' => 'users#profile'
   get '/users/register' => 'users#new'
   get '/login' => 'sessions#new'
 

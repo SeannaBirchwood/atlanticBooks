@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    @user = User.new
   end
 
   def index
@@ -9,9 +10,10 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find params[:id]
+    @user = User.find(params[:id])
     #@review = Review.new
     #@reviews = @book.reviews
+    helper_method :user_path
   end
 
   def create

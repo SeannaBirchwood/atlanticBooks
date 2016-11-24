@@ -27,7 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # Handles user authentication
-gem 'devise'
+# gem 'devise'
 # Some devise setup you must do manually if you haven't yet:
 #   1. Ensure you have defined default url options in your environments files. Here
 #      is an example of default_url_options appropriate for a development environment
@@ -44,7 +44,7 @@ gem 'devise'
 #   4. You can copy Devise views (for customization) to your app by running:
 #        rails g devise:views
 # The rails generate devise:views users command creates the directory
-# /app/views/users with all the devise views, such as login form, registration 
+# /app/views/users with all the devise views, such as login form, registration
 # form, etc. If you want customize these files and have Devise use them you must
 # set config.scoped_views to true in the configuration file, located at /app/config/initializers/devise.rb.
 

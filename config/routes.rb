@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  get '/login' => 'sessions#create'
+  get '/register' => 'registrations#new', as: 'new_user_registration'
+
   root to: 'books#index'
 
   resources :users, only: [:index, :profile]
@@ -12,15 +15,14 @@ Rails.application.routes.draw do
   get '/users/index' => 'users#index'
   get '/users/:user_id/profile' => 'users#profile'
   get '/users/profile' => 'users#profile'
-  get '/users/register' => 'users#new'
-  get '/login' => 'sessions#new'
 
+  post '/login' => 'sessions#create'
   post '/users' => 'users#index'
 
   #currently nonexistant
   get '/logout' => 'sessions#destroy'
 
-  post 'login' => 'sessions#create'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

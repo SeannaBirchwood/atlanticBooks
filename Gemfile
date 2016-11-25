@@ -36,6 +36,8 @@ gem 'money-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'faker'
+gem 'googlebooks','~> 0.0.9'
+gem 'httparty', '~> 0.13.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -12,7 +12,19 @@
     <%= render 'layouts/top_nav' %>
 
     <main class="container">
+      <% if flash[:notice] -%>
+        <div class= "alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+        <% end %>
+        <% if flash[:error] -%>
+          <div class = "alert alert-error">
+            <a class="close" data-dismiss="alert">x</a>
+            <%= flash[:warning] %>
+          </div>
+        <% end %>
       <%= yield %>
+    </div>
     </main>
   </body>
 </html>

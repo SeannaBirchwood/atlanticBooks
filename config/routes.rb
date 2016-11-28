@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   #currently nonexistant
   get '/logout' => 'sessions#destroy'
   get '/users/user_id/wishlist'
+  #get "activate/:code" => "users#activate", :as => "activate"
 
 
 

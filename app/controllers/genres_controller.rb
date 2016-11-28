@@ -1,6 +1,9 @@
 class GenresController < ApplicationController
   def show
-    @genre = Genre.find(params[:id])
-    #@books = @genre.books.order(created_at: :desc)
+    @fiction_ns = GoogleBooks.search('"Nova Scotia", categories: fiction',
+                {:api_key => "AIzaSyCvKlUy4ZaVE_QxdMVZ7T37rTyEJZI-9Wc",
+                  :count => 20,
+                  :order_by => 'newest'})
+
   end
 end

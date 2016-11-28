@@ -1,11 +1,22 @@
 <section class="books-index">
 
   <header class="page-header">
-    <h1>Books</h1>
+    <h1>New in Books</h1>
   </header>
-
   <div class="books">
-    <%= render @book %>
+
+    <% @newest_books.each do |book| %>
+     <h3><%= book.title %></h3>
+     <p>by <%= book.authors %></p>
+     <p>ISBN: <%= book.isbn %></p>
+     <p><%= book.publisher %></p>
+     <p><%= book.categories %></p>
+     <img src=<%= book.image_link %>/>
+     <p><%= book.description %></p>
+     <p><%= book.sale_info.fetch('retailPrice.amount', "Not yet priced") %></p>
+     <p><%= book.sale_info.fetch('buyLink', "Find it at your local bookseller!") %></p>
+    <br>
+    <% end %>
   </div>
 
 </section>

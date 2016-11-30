@@ -2,28 +2,33 @@ Rails.application.routes.draw do
 
   root to: 'books#index'
 
-  resources :users, only: [:index, :profile]
+  resources :users, only: [:index, :profile, :show] do
+    resources :profiles, only: [:show]
+  end
 
   resources :books, only: [:index, :show]
 
-  resources :wishlist, only: [:show] do
-    put :add_book
-    delete :remove_item
+  #resources :session
+
+  namespace :user do
+    root to: 'profile#show'
+    resources :wishlist, only: [:show] do
+      put :add_book
+      delete :remove_book
+    end
   end
 
-  get '/index' => 'books#index'
-  get '/users/index' => 'users#index'
-  get '/users/:user_id/profile' => 'users#profile'
-  #get '/users/profile' => 'users#profile'
   get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/users/index' => 'users#index'
+  get '/users/index/:user_id/profile' => 'users#profile'
+  get '/profile/:user_id' => 'profiles#show'
   get '/register' => 'users#new'
   get '/users/wishlist' => 'wishlist#show'
 
-  post '/login' => 'sessions#create'
-  post '/users' => 'users#index'
-
   #currently nonexistant
-  get '/logout' => 'sessions#destroy'
   get '/users/user_id/wishlist'
   #get "activate/:code" => "users#activate", :as => "activate"
 

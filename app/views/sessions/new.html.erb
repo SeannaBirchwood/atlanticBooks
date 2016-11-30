@@ -1,7 +1,27 @@
-<h1>Login</h1>
-
-<%= form_tag '/login' do %>
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
+<% if current_user %>
+<div class="current-user">
+  <span>Welcome, <%= @current_user.username %>!</span>
+  <span>How about heading over to checkout some <%= link_to " books", "/" %>?</span>
+</div>
+<% else %>
+<div class="page-header">
+  <h1>Login</h1>
+</div>
+<%= form_for :session, :url => '/login', :html => {:class => 'form-horizontal'} do |f| %>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Login', :class => 'btn btn-primary' %>
+  </div>
+  <% end %>
 <% end %>

@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     #order by how many books own/read?
   end
 
+  def show
+    @user = User.all
+  end
+
   def profile
     @user = User.find params[:id]
     #@review = Review.new
@@ -19,8 +23,10 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+      byebug
       redirect_to '/'
     else
+      byebug
       redirect_to '/signup'
     end
   end

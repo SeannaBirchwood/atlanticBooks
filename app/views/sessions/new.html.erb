@@ -1,6 +1,6 @@
-<% if current_user %>
+<% if @user %>
 <div class="current-user">
-  <span>Welcome, <%= @current_user.username %>!</span>
+  <span>Welcome, <%= @user.username %>!</span>
   <span>How about heading over to checkout some <%= link_to " books", "/" %>?</span>
 </div>
 <% else %>
@@ -24,4 +24,7 @@
     <%= f.submit 'Login', :class => 'btn btn-primary' %>
   </div>
   <% end %>
+  <div class="register-linkto">
+    <span>Not a member?</span>
+    <span><%= link_to " Register ", "/register" %> now for free!</span>
 <% end %>

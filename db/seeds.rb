@@ -24,10 +24,7 @@ User.create!({
   email: Faker::Internet.email,
   password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
-  location: Faker::Address.city,
-  bookclub: Faker::Pokemon.name,
-  wishlist: Faker::Hipster.words(4, true, true),
-  bookshelf: Faker::Book.title
+  location: Faker::Address.city
   })
 
 User.create!({
@@ -35,10 +32,7 @@ User.create!({
   email: Faker::Internet.email,
   password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
-  location: Faker::Address.city,
-  bookclub: Faker::Pokemon.name,
-  wishlist: Faker::Hipster.words(4, true, true),
-  bookshelf: Faker::Book.title
+  location: Faker::Address.city
   })
 
 User.create!({
@@ -46,8 +40,5 @@ User.create!({
   email: Faker::Internet.email,
   password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
-  location: Faker::Address.city,
-  bookclub: Faker::Pokemon.name,
-  wishlist: Faker::Hipster.words(4, true, true),
-  bookshelf: Faker::Book.title
+  location: Faker::Address.city
   })

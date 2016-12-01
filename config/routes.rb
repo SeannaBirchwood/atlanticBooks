@@ -2,13 +2,13 @@ Rails.application.routes.draw do
 
   root to: 'books#index'
 
-  resources :users, only: [:index, :profile, :show] do
+  resources :users, only: [:index, :profile, :show, :new] do
     resources :profiles, only: [:show]
   end
 
   resources :books, only: [:index, :show]
 
-  #resources :session
+  resources :sessions, only: [:create]
 
   namespace :user do
     root to: 'profile#show'
@@ -21,15 +21,17 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-
-  get '/users/index' => 'users#index'
-  get '/users/index/:user_id/profile' => 'users#profile'
-  get '/profile/:user_id' => 'profiles#show'
   get '/register' => 'users#new'
-  get '/users/wishlist' => 'wishlist#show'
+  post '/register' => 'users#create'
+  post '/sessions' => 'sessions#new'
+
+  get '/users' => 'users#index'
+  get '/users/:user_id' => 'users#show'
+  get '/users/:user_id/edit' => 'users#edit'
+  get '/users/:user_id/wishlist' => 'users#wishlist'
 
   #currently nonexistant
-  get '/users/user_id/wishlist'
+  #get '/users/user_id/wishlist'
   #get "activate/:code" => "users#activate", :as => "activate"
 
 

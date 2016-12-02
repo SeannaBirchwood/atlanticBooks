@@ -7,11 +7,20 @@ Rails.application.routes.draw do
 
   resources :genre, only: [:show]
 
+  resource :favourites, only: [:show] do
+    put    :add_item
+  end
+
+  resource :wishlist, only: [:show] do
+    put     :add_item
+  end
+
   get '/index' => 'books#index'
   get '/users/index' => 'users#index'
   get '/users/:user_id/profile' => 'users#profile'
   get '/users/register' => 'users#new'
   get '/login' => 'sessions#new'
+  get '/classics' => 'classics#show'
 
   post '/users' => 'users#index'
 

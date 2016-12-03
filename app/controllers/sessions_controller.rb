@@ -8,14 +8,10 @@ class SessionsController < ApplicationController
     puts "Running create"
     user = User.find_by_email(params[:session][:email]) #.try(:authenticate, params[:session][:password])
     if user && user.authenticate(params[:session][:password])
-      puts "***User authenticated cont"
       session[:user_id] = user.id
-      #byebug
       redirect_to '/', :notice => "Successfully logged in."
     else
-      puts "***Not logged in- user #{user} - authenticated? #{user.authenticate(params[:session][:password])}"
-      #byebug
-      redirect_to '/login', :flash => {:error => "Invalid username or password"}
+      redirect_to '/login', :notice => "Invalid username or password"
     end
   end
 

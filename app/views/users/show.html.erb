@@ -1,4 +1,3 @@
-<h1>This is a placeholder for a individual user profile</h1>
 <section class="users-profile">
   <header class="page-header">
     <h1> <%= link_to 'All users', '/users' %> </h1>
@@ -6,7 +5,7 @@
   <article class="user-detail">
     <div class="row">
       <div class="col-sm-4">
-        <%= image_tag current_user.avatar, class: 'main-img' %>
+      <%= image_tag @user.avatar if @user.avatar.present? class: 'main-img' %>
       </div>
       <div class="col-sm-8">
         <dl class="dl-horizontal">

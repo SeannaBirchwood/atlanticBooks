@@ -23,18 +23,20 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
-      byebug
-      redirect_to '/'
+      redirect_to '/login'
     else
-      byebug
-      redirect_to '/signup'
+      redirect_to '/register'
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(
+    :username,
+    :email,
+    :password,
+    :password_confirmation)
   end
 
 end

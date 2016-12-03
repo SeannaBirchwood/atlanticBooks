@@ -2,16 +2,16 @@ Rails.application.routes.draw do
 
   root to: 'books#index'
 
-  resources :users, only: [:index, :profile, :show, :new] do
-    resources :profiles, only: [:show]
-  end
+  resources :users, only: [:index, :show, :new]
 
   resources :books, only: [:index, :show]
 
   resources :sessions, only: [:create]
 
+  resources :bookstores, only: [:show]
+
   namespace :user do
-    root to: 'profile#show'
+    root to: 'users#show'
     resources :wishlist, only: [:show] do
       put :add_book
       delete :remove_book
@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/users/:user_id' => 'users#show'
   get '/users/:user_id/edit' => 'users#edit'
   get '/users/:user_id/wishlist' => 'users#wishlist'
+
+  get '/bookstores' => 'bookstores#index'
 
   #currently nonexistant
   #get '/users/user_id/wishlist'

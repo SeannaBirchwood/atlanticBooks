@@ -7,7 +7,15 @@
       <img src="<%= book.image_link(:zoom => 5) %>" />
         <h4 class="title"><%= book.title %></h4>
          <p>by <%= book.authors %></p>
-        <p><%= book.publisher %> <%= book.categories %></p>
+        <p class="cat"><%= book.publisher %> <%= book.categories %></p>
+    <footer class="actions">
+    <%= link_to add_item_favourite_path('<%= book.image_link %>'), class: 'btn btn-primary', method: :put do %>
+      <%= fa_icon "heart", text: 'Add to Favourites' %>
+    <% end %>
+    <%= link_to add_item_wishlist_path('<%= book.image_link %>'), class: 'btn btn-default pull-right' method: :put do %>
+     <%= fa_icon "star", text: 'Add to Wishlist' %>
+    <% end %>
+  </footer>
       </article>
      <% end %>
     </div>

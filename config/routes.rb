@@ -18,12 +18,29 @@ Rails.application.routes.draw do
     end
   end
 
+<<<<<<< HEAD
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/register' => 'users#new'
   post '/register' => 'users#create'
   post '/sessions' => 'sessions#new'
+=======
+  resource :favourites, only: [:show] do
+    put    :add_item
+  end
+
+  resource :wishlist, only: [:show] do
+    put     :add_item
+  end
+
+  get '/index' => 'books#index'
+  get '/users/index' => 'users#index'
+  get '/users/:user_id/profile' => 'users#profile'
+  get '/users/register' => 'users#new'
+  get '/login' => 'sessions#new'
+  get '/classics' => 'classics#show'
+>>>>>>> feature/booksapi
 
   get '/users' => 'users#index'
   get '/users/:user_id' => 'users#show'

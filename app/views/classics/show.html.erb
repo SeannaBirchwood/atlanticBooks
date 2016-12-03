@@ -1,0 +1,15 @@
+<div id="wrapper">
+  <div id="columns">
+    <div>
+    <h1>Atlantic Classics</h1>
+  <% @classic_books.each do |book| %>
+    <article class="pin">
+      <img src="<%= book.image_link(:zoom => 5) %>" />
+        <h4 class="title"><%= book.title %></h4>
+         <p>by <%= book.authors %></p>
+        <p><%= book.publisher %> <%= book.categories %></p>
+      </article>
+     <% end %>
+    </div>
+  </div>
+</div>

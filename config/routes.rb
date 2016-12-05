@@ -10,22 +10,7 @@ Rails.application.routes.draw do
 
   resources :bookstores, only: [:show]
 
-  namespace :user do
-    root to: 'users#show'
-    resources :wishlist, only: [:show] do
-      put :add_book
-      delete :remove_book
-    end
-  end
 
-<<<<<<< HEAD
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
-  get '/register' => 'users#new'
-  post '/register' => 'users#create'
-  post '/sessions' => 'sessions#new'
-=======
   resource :favourites, only: [:show] do
     put    :add_item
   end
@@ -34,13 +19,20 @@ Rails.application.routes.draw do
     put     :add_item
   end
 
-  get '/index' => 'books#index'
-  get '/users/index' => 'users#index'
-  get '/users/:user_id/profile' => 'users#profile'
-  get '/users/register' => 'users#new'
+  namespace :user do
+    root to: 'users#show'
+    resources :wishlist, only: [:show] do
+      put :add_book
+      delete :remove_book
+    end
+  end
+
   get '/login' => 'sessions#new'
-  get '/classics' => 'classics#show'
->>>>>>> feature/booksapi
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/register' => 'users#new'
+  post '/register' => 'users#create'
+  post '/sessions' => 'sessions#new'
 
   get '/users' => 'users#index'
   get '/users/:user_id' => 'users#show'
@@ -48,6 +40,8 @@ Rails.application.routes.draw do
   get '/users/:user_id/wishlist' => 'users#wishlist'
 
   get '/bookstores' => 'bookstores#index'
+  get '/classics' => 'classics#show'
+  get '/wishlist' => 'wishlist#show'
 
   #currently nonexistant
   #get '/users/user_id/wishlist'

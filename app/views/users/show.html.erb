@@ -1,11 +1,11 @@
 <section class="users-profile">
   <header class="page-header">
-    <h1> <%= link_to 'All users', '/users' %> </h1>
+    <h4> Go back to <%= link_to ' all users', '/users' %> </h4>
   </header>
   <article class="user-detail">
     <div class="row">
       <div class="col-sm-4">
-      <%= image_tag @user.avatar if @user.avatar.present? class: 'main-img' %>
+      <%= image_tag @user.avatar, class: 'main-img' %>
       </div>
       <div class="col-sm-8">
         <dl class="dl-horizontal">
@@ -14,11 +14,11 @@
           <dt>Location</dt>
           <dd><%= @user.location %></dd>
           <dt>Bookclubs</dt>
-          <dd><%= @user.bookclub %></dd>
+          <dd><%= @user %></dd>
           <dt>Wishlist</dt>
-          <dd><%= @user.wishlist %></dd>
+          <dd><%= @user %></dd>
           <dt>Bookshelf</dt>
-          <dd><%= @user.bookshelf %></dd>
+          <dd><%= @user %></dd>
         </dl>
       </div>
       <div>

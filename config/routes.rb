@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/edit' => 'users#edit'
   get '/users/:user_id/wishlist' => 'wishlists#show'
 
+  get 'favourites/favourites'
   get '/bookstores' => 'bookstores#index'
   get '/classics' => 'classics#show'
   get '/wishlist' => 'wishlist#show'

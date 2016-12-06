@@ -2,9 +2,9 @@
   <header>
     <%= link_to 'Visit', user %>
     <% if user.avatar.present? %>
-    <%= image_tag user.avatar %>
+      <%= image_tag user.avatar %>
     <% else %>
-    <a class="navbar-brand"><img style="max-height: 100px; padding-top: -5px; padding-bottom: 8px;" alt="default profile" src="default-profile.png" ></a>
+      <a class="navbar-brand"><img style="max-height: 100px; padding-top: -5px; padding-bottom: 8px;" alt="default profile" src="default-profile.png" ></a>
     <% end %>
     <h4><%= user.username %></h4>
   </header>

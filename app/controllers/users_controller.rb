@@ -6,13 +6,14 @@ class UsersController < ApplicationController
 
   def index
     @user = User.all
-    @user.profilePic="../public/default-profile.png" if @user.avatar.empty?
+    #@user.profilePic="../public/default-profile.png" if @user.avatar.empty?
     #order by how many books own/read?
   end
 
   def show
     @user = User.find(params[:id])
-    @user.profilePic="../public/default-profile.png" if @user.avatar.empty?
+    #@wishlist = Wishlist.find(params[user.id])
+    #@user.profilePic="../public/default-profile.png" if @user.avatar.empty?
   end
 
   # def profile
@@ -32,6 +33,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def add_to_wishlist(item)
+    wishlist.items << item
+  end
+
   private
 
   def user_params
@@ -41,5 +46,4 @@ class UsersController < ApplicationController
     :password,
     :password_confirmation)
   end
-
 end

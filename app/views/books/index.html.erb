@@ -20,8 +20,11 @@
          <p>by <%= book.authors %></p>
         <p class="cat"><%= book.publisher %> <%= book.categories %></p>
         <%= link_to "Add to Favorites" %>
+        <!--If user has already favourited, put "favourited" instead -->
         <br>
         <%= link_to "Add to Wishlist" %>
+        <br>
+        <%= link_to "Add to Bookshelf" %>
       </article>
      <% end %>
     </div>

@@ -15,16 +15,13 @@ Rails.application.routes.draw do
     put    :add_item
   end
 
-  # resource :wishlist, only: [:show] do
-  #   put     :add_item
-  # end
-
   namespace :user do
     root to: 'users#show'
-    resources :wishlist, only: [:show] do
-      put :add_book
-      delete :remove_book
-    end
+  end
+
+  resources :wishlist, only: [:show] do
+    put :add_book
+    delete :remove_book
   end
 
   get '/login' => 'sessions#new'
@@ -36,16 +33,14 @@ Rails.application.routes.draw do
 
   get '/users' => 'users#index'
   get '/users/:user_id' => 'users#show'
-  get '/users/:user_id/edit' => 'users#edit'
-  get '/users/:user_id/wishlist' => 'wishlists#show'
+  get '/users/:user_id/edit' => 'profiles#show'
 
+  get '/users/:user_id/wishlist' => 'wishlists#show'
   get 'favourites/favourites'
   get '/bookstores' => 'bookstores#index'
   get '/classics' => 'classics#show'
-  get '/wishlist' => 'wishlist#show'
 
   #currently nonexistant
-  #get '/users/user_id/wishlist'
   #get "activate/:code" => "users#activate", :as => "activate"
 
 

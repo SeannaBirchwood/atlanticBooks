@@ -5,7 +5,11 @@
   <article class="user-detail">
     <div class="row">
       <div class="col-sm-4">
-      <%= image_tag @user.avatar, class: 'main-img' %>
+        <% if @user.avatar.present? %>
+        <%= image_tag @user.avatar %>
+        <% else %>
+        <a class="navbar-brand"><img style="max-height: 70px; padding-top: -5px; padding-bottom: 8px;" alt="default profile" src="default-profile.png" ></a>
+        <% end %>
       </div>
       <div class="col-sm-8">
         <dl class="dl-horizontal">

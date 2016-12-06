@@ -1,8 +1,12 @@
 <article class="user">
   <header>
     <%= link_to 'Visit', user %>
-      <%= image_tag user.avatar if user.avatar.present? %>
-      <h4><%= user.username %></h4>
+    <% if user.avatar.present? %>
+    <%= image_tag user.avatar %>
+    <% else %>
+    <a class="navbar-brand"><img style="max-height: 100px; padding-top: -5px; padding-bottom: 8px;" alt="default profile" src="default-profile.png" ></a>
+    <% end %>
+    <h4><%= user.username %></h4>
   </header>
   <p class="location">
     In <%= user.location %>

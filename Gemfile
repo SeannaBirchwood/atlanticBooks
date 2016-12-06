@@ -38,6 +38,8 @@ gem 'rmagick'
 gem 'faker'
 gem 'googlebooks','~> 0.0.9'
 gem 'httparty', '~> 0.13.7'
+gem 'acts_as_favable'
+gem 'booksr'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

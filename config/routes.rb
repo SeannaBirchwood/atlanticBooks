@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favourites/favourites'
+
   root to: 'books#index'
 
   resources :users, only: [:index, :profile]

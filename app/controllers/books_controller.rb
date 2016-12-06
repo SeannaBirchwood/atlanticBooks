@@ -2,20 +2,13 @@ class BooksController < ApplicationController
   require 'httparty'
   def index
     # @book = Book.all #.order(created_at: :desc)
-    @newest_books = GoogleBooks.search('Halifax',
+    @newest_books = GoogleBooks.search('Atlantic Canada',
                   {:api_key => "AIzaSyCvKlUy4ZaVE_QxdMVZ7T37rTyEJZI-9Wc",
-                    :count => 20,
+                    :count => 10,
                     :order_by => 'newest'})
-
-    @anne_books = GoogleBooks.search('isbn:9781409143529',
-                {:api_key => "AIzaSyCvKlUy4ZaVE_QxdMVZ7T37rTyEJZI-9Wc"})
-    @anne_book = @anne_books.first
-
-
   end
 
   def show
-
   end
 
 end

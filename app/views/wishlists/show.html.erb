@@ -3,9 +3,9 @@
     <h1>User's Wishlist</h1>
     <h6>Isn't static yet, operates like Jungle's Cart</h6>
   </header>
-  <% if wishlist.length == 0 %>
+  <% if @wishlist_total == 0 %>
   <div>
-    <span>This user's wishlist is empty. Recommend <%= link_to 'some books' :root %>.</span>
+    <span>This user's wishlist is empty. Recommend <%= link_to 'some books', :root %>.</span>
   </div>
   <% else %>
   <div class="panel panel-default items">
@@ -32,3 +32,4 @@
     </table>
   </div>
 </section>
+<% end %>

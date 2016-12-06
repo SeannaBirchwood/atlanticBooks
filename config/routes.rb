@@ -15,9 +15,9 @@ Rails.application.routes.draw do
     put    :add_item
   end
 
-  resource :wishlist, only: [:show] do
-    put     :add_item
-  end
+  # resource :wishlist, only: [:show] do
+  #   put     :add_item
+  # end
 
   namespace :user do
     root to: 'users#show'
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/users' => 'users#index'
   get '/users/:user_id' => 'users#show'
   get '/users/:user_id/edit' => 'users#edit'
-  get '/users/:user_id/wishlist' => 'users#wishlist'
+  get '/users/:user_id/wishlist' => 'wishlists#show'
 
   get '/bookstores' => 'bookstores#index'
   get '/classics' => 'classics#show'

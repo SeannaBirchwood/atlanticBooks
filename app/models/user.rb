@@ -11,8 +11,6 @@ class User < ApplicationRecord
 
   has_one :profile
 
-  has_one :wishlist
-
   validates :username, presence: true
   validates :email, presence: true
   validates :location, presence: true

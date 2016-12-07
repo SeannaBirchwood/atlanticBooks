@@ -1,12 +1,11 @@
-class WishlistsController < UsersController
+class WishlistsController < ApplicationController
 
   def show
-    @wishlist = Wishlist.new
+    # @wishlist = Wishlist.find(params[:id])
     # @line_items = @wishlist.line_items
     @wishlist_total = 0
     # book_id = params[:book_id]
     # @wishlist_book = wishlist[book_id]
-    # @user = User.find(params[:id])
   end
 
   def add_book

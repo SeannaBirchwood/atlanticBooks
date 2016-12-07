@@ -8,6 +8,21 @@
 
 <div id="wrapper">
   <div id="columns">
+
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <div>
+    <h1 class="page-header">Search by genre</h1>
+        <%= form_tag books_path, method: "get", html: { class: "form" } do %>
+     <div class="form-group col-xs-4">
+       <%= text_field_tag(:subject, "", class: "form-control") %>
+     </div>
+     <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+      </div>
+      <br>
+
       <br>
     <div>
     <h2>New and Noteworthy</h2>

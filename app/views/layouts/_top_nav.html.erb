@@ -22,9 +22,9 @@
       <ul class="nav navbar-nav">
 
         <li class="dropdown">
-          <span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">Discover Local Books <span class="caret"></span></span>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">Discover Local Books <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">New and Noteworthy</a></li>
+            <li><a href="/">New and Noteworthy</a></li>
             <li><a href="/classics">Atlantic Classics</a></li>
             <li><a href="/provinces">Browse by Province</a></li>
             <li><a href="#">Browse by Publisher</a></li>
@@ -34,19 +34,33 @@
             <li><a href="/feature/publisher">Featured Publisher</a></li>
           </ul>
         </li>
-        <li><a href="#" style="font-weight: bold;">Find Your Bookstore</a></li>
+        <li><a href="./bookstores" style="font-weight: bold;">Find Your Bookstore</a></li>
       </ul>
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">My Books <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">My Books <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Favourites</a></li>
-            <li><a href="#">Wishlist</a></li>
+            <li><%= link_to "Profile", current_user%></li>
+            <li><%= link_to "Wishlist", "current_user/wishlist"%></li>
+            <!--<li>Bookshelf</li>
+            <li>Favourites</li> -->
           </ul>
         </li>
-       <li><a href="#" style="font-weight: bold;">Login</a></li>
+       <li><a href="./users" style="font-weight: bold;">Find Friends</a></li>
+       <% if current_user %>
+       <ul class="nav navbar-nav">
+         <li class="dropdown">
+           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-weight: bold;">Logged in as <%=current_user.username %><span class="caret"></span></a>
+           <ul class="dropdown-menu">
+             <li><a href="./logout" style="font-weight: bold;">Logout</a></li>
+           </ul>
+         </li>
+       </ul>
+       <% else %>
+       <li><a href="./login" style="font-weight: bold;">Login</a></li>
+       <% end %>
       </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </nav>

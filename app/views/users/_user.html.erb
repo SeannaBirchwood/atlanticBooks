@@ -1,14 +1,14 @@
-<h1> This is a partial placeholder for the user index, where we loop through
-  all available users</h1>
-
 <article class="user">
   <header>
-    <%= link_to user do %>
-      <%= image_tag user.avatar, alt: user.username %>
-      <h4><%= user.username %></h4>
+    <%= link_to 'Visit', user %>
+    <% if user.avatar.present? %>
+    <%= image_tag user.avatar %>
+    <% else %>
+    <a class="navbar-brand"><img style="max-height: 100px; padding-top: -5px; padding-bottom: 8px;" alt="default profile" src="default-profile.png" ></a>
     <% end %>
+    <h4><%= user.username %></h4>
   </header>
   <p class="location">
-    <%= user.location %>
+    In <%= user.city %>, <%= user.province %>
   </p>
 </article>

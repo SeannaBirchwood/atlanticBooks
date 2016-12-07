@@ -1,27 +1,33 @@
 Rails.application.routes.draw do
 
 
-
   root to: 'books#index'
 
-  resources :users, only: [:index, :profile]
+  resources :users, only: [:index, :show, :new]
 
   resources :books, only: [:index, :show]
 
-  resources :genre, only: [:show]
+  resources :sessions, only: [:create]
+
+  resources :bookstores, only: [:index]
+
 
   resource :favourites, only: [:show] do
     put    :add_item
   end
 
-  resource :wishlist, only: [:show] do
-    put     :add_item
+  # resource :wishlist, only: [:show] do
+  #   put     :add_item
+  # end
+
+  namespace :user do
+    root to: 'users#show'
+    resources :wishlist, only: [:show] do
+      put :add_book
+      delete :remove_book
+    end
   end
 
-  get '/index' => 'books#index'
-  get '/users/index' => 'users#index'
-  get '/users/:user_id/profile' => 'users#profile'
-  get '/users/register' => 'users#new'
   get '/login' => 'sessions#new'
   get '/classics' => 'classics#show'
   get '/provinces' => 'provinces#index'
@@ -33,10 +39,22 @@ Rails.application.routes.draw do
   post '/users' => 'users#index'
   get 'search' => 'books#search'
 
-  #currently nonexistant
+  post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/register' => 'users#new'
+  post '/register' => 'users#create'
 
-  post 'login' => 'sessions#create'
+  get '/users' => 'users#index'
+  get '/users/:user_id' => 'users#show'
+  get '/users/:user_id/edit' => 'users#edit'
+  get '/users/:user_id/wishlist' => 'wishlists#show'
+
+  get 'favourites/favourites'
+  get '/bookstores' => 'bookstores#index'
+  get '/wishlist' => 'wishlist#show'
+
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

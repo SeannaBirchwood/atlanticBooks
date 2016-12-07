@@ -10,33 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122223533) do
+ActiveRecord::Schema.define(version: 20161207190906) do
 
   create_table "books", force: :cascade do |t|
     t.string  "name"
     t.string  "author"
+    t.string  "image"
+    t.text    "description"
     t.date    "publish_date"
     t.string  "genre"
     t.string  "publisher"
     t.integer "rating"
   end
 
+  create_table "bookstores", force: :cascade do |t|
+    t.integer  "phonenumber"
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "image"
+    t.string   "city"
+    t.string   "province"
+    t.text     "description"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "username"
     t.string   "password_digest"
-    t.string   "email"
-    t.string   "location"
-    t.string   "bookclub"
-    t.string   "wishlist"
-    t.string   "bookshelf"
     t.string   "avatar"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "email"
+    t.string   "city"
+    t.string   "province"
+    t.string   "image"
+    t.text     "description"
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "listing_id"
+    t.integer  "user_id"
   end
 
 end

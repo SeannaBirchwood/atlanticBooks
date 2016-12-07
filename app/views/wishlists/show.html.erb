@@ -1,0 +1,35 @@
+<section class="wishlist-show">
+  <header class="page-header">
+    <h1>User's Wishlist</h1>
+    <h6>Isn't static yet, operates like Jungle's Cart</h6>
+  </header>
+  <% if @wishlist_total == 0 %>
+  <div>
+    <span>This user's wishlist is empty. Recommend <%= link_to 'some books', :root %>.</span>
+  </div>
+  <% else %>
+  <div class="panel panel-default items">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Book</th>
+          <th>List Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @wishlist_total = 0 %>
+        <% wishlist.each do |book_id, details| %>
+          <% render 'item', book_id: book_id, details: details %>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="4">
+            Total:
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+<% end %>

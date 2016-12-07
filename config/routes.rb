@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create]
 
-  resources :bookstores, only: [:show]
+  resources :bookstores, only: [:index]
 
 
   resource :favourites, only: [:show] do

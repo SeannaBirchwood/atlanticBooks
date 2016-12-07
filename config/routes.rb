@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'favourites/favourites'
+
+
 
   root to: 'books#index'
 
@@ -23,8 +24,14 @@ Rails.application.routes.draw do
   get '/users/register' => 'users#new'
   get '/login' => 'sessions#new'
   get '/classics' => 'classics#show'
+  get '/provinces' => 'provinces#index'
+  get '/feature/author' => 'featureds#index'
+  get '/feature/publisher' => 'featureds#show'
+  get '/search' => 'searches#search'
+
 
   post '/users' => 'users#index'
+  get 'search' => 'books#search'
 
   #currently nonexistant
   get '/logout' => 'sessions#destroy'

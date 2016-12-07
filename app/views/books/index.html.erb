@@ -1,24 +1,24 @@
+<div class="jumbotron">
+  <div class="container">
+  <img style="float: left; max-height: 200px; max-width: 200px;" src="ReadAtlanticSymbol.png" />
+    <h1 class="display-3">Welcome to Read Atlantic</h1>
+    <p class="lead">Find great books written by, published by, and about Atlantic Canadians</p>
+  </div>
+</div>
+
 <div id="wrapper">
   <div id="columns">
-    <div>
-    <h1 class="page-header">Search by genre</h1>
-        <%= form_tag books_path, method: "get", html: { class: "form" } do %>
-     <div class="form-group col-xs-4">
-       <%= text_field_tag(:subject, "", class: "form-control") %>
-     </div>
-     <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
-      </div>
-      <br>
       <br>
     <div>
-    <h1>New and Noteworthy</h1>
+    <h2>New and Noteworthy</h2>
   <% @newest_books.each do |book| %>
     <article class="pin">
       <img src="<%= book.image_link(:zoom => 5) %>" />
         <h4 class="title"><%= book.title %></h4>
          <p>by <%= book.authors %></p>
         <p class="cat"><%= book.publisher %> <%= book.categories %></p>
+        <a href="<%= book.info_link %>" target="_blank">More info</a>
+        <br>
         <%= link_to "Add to Favorites" %>
         <br>
         <%= link_to "Add to Wishlist" %>

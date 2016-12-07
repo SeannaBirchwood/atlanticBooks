@@ -1,4 +1,4 @@
-// Place all the styles related to the Books controller here.
+// Place all the styles related to the Provinces controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -19,10 +19,6 @@
   column-count: 3;
   column-gap: 15px;
   column-fill: auto;
-}
-
-.jumbotron {
-  background-image: "ReadAtlanticSymbol.png";
 }
 
 .pin {
@@ -72,15 +68,9 @@ label {
   color: #333;
 }
 
-.search-form {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #d3d3d3;
-  width: 50%;
-  padding-left: 50px;
-  padding-bottom: 15px;
+ul {
+  list-style-type: none;
 }
-
 
 @media (min-width: 960px) {
   #columns {

@@ -6,13 +6,13 @@ class UsersController < ApplicationController
 
   def index
     @user = User.all
-    @user.profilePic="../public/default-profile.png" if @user.avatar.empty?
+    #@user.profilePic="../public/default-profile.png" if @user.avatar.empty?
     #order by how many books own/read?
   end
 
   def show
     @user = User.find(params[:id])
-    @user.profilePic="../public/default-profile.png" if @user.avatar.empty?
+    #@user.profilePic="../public/default-profile.png" if @user.avatar.empty?
   end
 
   # def profile
@@ -22,13 +22,15 @@ class UsersController < ApplicationController
   # end
 
   def create
-    @user = User.new(user_params)
-    @user.profilePic = "../../public/default-profile.png"
+    @user = User.create(user_params)
+    #@user.profilePic = "../../public/default-profile.png"
     if @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       redirect_to '/login'
+      byebug
     else
       redirect_to '/register'
+      byebug
     end
   end
 

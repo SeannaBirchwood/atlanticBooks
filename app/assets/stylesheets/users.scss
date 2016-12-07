@@ -77,3 +77,13 @@ main section.users-show {
     }
   }
 }
+
+main section.users-new {
+
+  aside.alert {
+    color: red;
+    border-style: dotted;
+    margin: auto;
+    padding: 1.5em;
+  }
+}

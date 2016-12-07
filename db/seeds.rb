@@ -24,7 +24,7 @@ User.create!({
   email: Faker::Internet.email,
   password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
-  location: Faker::Address.city
+  city: Faker::Address.city
   })
 
 User.create!({
@@ -32,7 +32,7 @@ User.create!({
   email: Faker::Internet.email,
   password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
-  location: Faker::Address.city
+  city: Faker::Address.city
   })
 
 User.create!({
@@ -40,5 +40,36 @@ User.create!({
   email: Faker::Internet.email,
   password_digest: Faker::Crypto.md5,
   avatar: Faker::Avatar.image,
-  location: Faker::Address.city
+  city: Faker::Address.city
+  })
+
+puts "Recreating fake bookstores ... "
+
+Bookstore.destroy_all
+
+Bookstore.create!({
+  image: Faker::Placeholdit.image("100x100"),
+  name: Faker::Color.color_name + " Books",
+  city: "Halifax",
+  province: "NS",
+  phonenumber: Faker::PhoneNumber.phone_number,
+  description: Faker::Hipster.sentences
+  })
+
+Bookstore.create!({
+  image: Faker::Placeholdit.image("100x100"),
+  name: Faker::Color.color_name + " Books",
+  city: "Fredericton",
+  province: "NB",
+  phonenumber: Faker::PhoneNumber.phone_number,
+  description: Faker::Hipster.sentences
+  })
+
+Bookstore.create!({
+  image: Faker::Placeholdit.image("100x100"),
+  name: Faker::Color.color_name + " Books",
+  city: "Charlottetown",
+  province: "PEI",
+  phonenumber: Faker::PhoneNumber.phone_number,
+  description: Faker::Hipster.sentences
   })

@@ -1,0 +1,16 @@
+<article class="bookstore">
+  <header>
+    <%= link_to 'Visit' %>
+    <% if bookstore.image.present? %>
+      <%= image_tag bookstore.image %>
+    <% else %>
+      <a class="navbar-brand"><img style="max-height: 100px; padding-top: -5px; padding-bottom: 8px;" alt="default profile" src="default-profile.png" ></a>
+    <% end %>
+    <h4><%= bookstore.name %></h4>
+  </header>
+  <p class="location">
+    In <%= bookstore.city %>, <%= bookstore.province %>
+    <br>
+    Contact: <%=bookstore.phonenumber %>
+  </p>
+</article>

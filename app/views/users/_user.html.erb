@@ -4,7 +4,7 @@
     <% if user.avatar.present? %>
     <%= image_tag user.avatar %>
     <% else %>
-    <a class="navbar-brand"><img style="max-height: 150px; padding-top: -5px; padding-bottom: 8px;" alt="default profile" src="default-profile.png" ></a>
+    <%= image_tag("default-profile.png", :style => "max-height: 150px") %>
     <% end %>
   </header>
   <div class="user-details">

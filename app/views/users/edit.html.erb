@@ -1,3 +1,4 @@
+<body class="whitefeather">
 <div class="page-header">
   <h3>Edit your profile, <%= current_user.username %></h3>
 </div>
@@ -11,13 +12,32 @@
   </div>
   <% end %>
   <div class="control-group">
-    Change Username: <%= form.text_field :username %>
-    Change Email: <%= form.text_field :email %>
-    Change Password: <%= form.password_field :password %>
-    Confirm Password: <%= form.password_field :password_confirmation %>
-    Change City: <%= form.text_field :city %>
-    Change Province: <%= form.text_field :province %>
-    Change Profile Picture: <%= form.file_field :avatar %>
-    <%= form.submit "Save Changes" %>
+    <dl class="dl-verticle">
+      <dt>Change Username:<dt>
+      <dd><%= form.text_field :username %></dd>
+      <br>
+      <dt>Change Email:</dt>
+      <dd><%= form.text_field :email %></dd>
+      <br>
+      <dt>Change Password:</dt>
+      <dd><%= form.password_field :password %></dd>
+      <br>
+      <dt>Confirm Password:</dt>
+      <dd><%= form.password_field :password_confirmation %></dd>
+      <br>
+      <dt>Change City:</dt>
+      <dd><%= form.text_field :city %></dd>
+      <br>
+      <dt>Change Province:</dt>
+      <dd><%= form.text_field :province %></dd>
+      <br>
+      <div class="chngprofile">
+        <dt>Change Profile Picture:</dt>
+        <dd><%= form.file_field :avatar %></dd>
+      </div>
+      <br>
+      <%= form.submit "Save Changes" %>
+    </dl>
   </div>
 <% end %>
+</body>

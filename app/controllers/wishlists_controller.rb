@@ -6,6 +6,7 @@ class WishlistsController < ApplicationController
     @wishlist_total = 0
     # book_id = params[:book_id]
     # @wishlist_book = wishlist[book_id]
+    @user = User.find(params[:id])
   end
 
   def add_book

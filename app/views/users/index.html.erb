@@ -1,17 +1,20 @@
-<div>
+<body class="bgimg">
+  <div class="background">
+    <section class="users-index">
+
+      <header class="page-header">
+        <h1 class="h1members">Members</h1>
+      </header>
 
 
-<section class="users-index">
+      <div class="users">
+        <%= render @user %>
+      </div>
 
-  <header class="page-header">
-    <h1>Members</h1>
-  </header>
 
-  <div class="users">
-    <%= render @user %>
-  </div>
-
-</section>
-
-<footer><h5>Each user should display an "add friend" button or a "friend" button.</h5></footer>
 </div>
+
+    </section>
+  </div>
+</body>
+

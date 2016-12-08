@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h3>Edit your profile, <%= current_user.username %></h3>
+</div>
+<%= form_for (@user) do |form| %>
+  <% if @user.errors.any? %>
+  <div class="alert alert-error">
+    <a class="close" data-dismiss="alert">x</a>
+    <% for message in @user.errors.full_messages %>
+      <%= message %> <br />
+    <% end %>
+  </div>
+  <% end %>
+  <div class="control-group">
+    Change Username: <%= form.text_field :username %>
+    Change Email: <%= form.text_field :email %>
+    Change Password: <%= form.password_field :password %>
+    Confirm Password: <%= form.password_field :password_confirmation %>
+    Change City: <%= form.text_field :city %>
+    Change Province: <%= form.text_field :province %>
+    Change Profile Picture: <%= form.file_field :avatar %>
+    <%= form.submit "Save Changes" %>
+  </div>
+<% end %>

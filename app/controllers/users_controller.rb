@@ -26,11 +26,22 @@ class UsersController < ApplicationController
     #@user.profilePic = "../../public/default-profile.png"
     if @user.save
       session[:user_id] = @user.id
+      flash[:notice] = "Welcome to Read Atlantic"
       redirect_to '/login'
-      byebug
     else
       redirect_to '/register'
-      byebug
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    #@user.profilePic = "../../public/default-profile.png"
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "Your changes have been saved"
+      redirect_to '/users/:id'
+    else
+      redirect_to '/users/:id/edit'
     end
   end
 

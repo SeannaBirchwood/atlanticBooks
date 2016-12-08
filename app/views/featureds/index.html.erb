@@ -1,11 +1,11 @@
 <div>
 
-
 <div id="wrapper">
   <div id="columns">
     <div>
-    <h1>Atlantic Classics</h1>
-  <% @classic_books.each do |book| %>
+    <h1>Featured Author:</h1>
+    <h3>George Elliott Clarke</h3>
+  <% @feat_auth.each do |book| %>
     <article class="pin">
       <img src="<%= book.image_link(:zoom => 5) %>" />
         <a href="<%= book.info_link %>" target="_blank"><h4 class="title"><%= book.title %></h4></a>

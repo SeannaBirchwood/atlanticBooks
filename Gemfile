@@ -39,6 +39,7 @@ gem 'googlebooks','~> 0.0.9'
 gem 'httparty', '~> 0.13.7'
 gem 'acts_as_favable'
 gem 'booksr'
+gem 'jquery-turbolinks', '~> 0.2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

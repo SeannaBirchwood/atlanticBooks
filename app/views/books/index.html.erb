@@ -1,3 +1,4 @@
+<div>
 <div class="jumbotron">
   <div class="container">
   <img style="float: left; max-height: 200px; max-width: 200px;" src="ReadAtlanticSymbol.png" />
@@ -9,7 +10,7 @@
 <div id="wrapper">
   <div id="columns">
 
-    <% if flash[:notice] %>
+<!--     <% if flash[:notice] %>
       <div class="notice"><%= flash[:notice] %></div>
     <% end %>
     <div>
@@ -21,7 +22,7 @@
      <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
       </div>
-      <br>
+      <br> -->
 
       <br>
     <div>
@@ -29,10 +30,11 @@
   <% @newest_books.each do |book| %>
     <article class="pin">
       <img src="<%= book.image_link(:zoom => 5) %>" />
-        <h4 class="title"><%= book.title %></h4>
+        <a href="<%= book.info_link %>" target="_blank"><h4 class="title"><%= book.title %></h4></a>
          <p>by <%= book.authors %></p>
-        <p class="cat"><%= book.publisher %> <%= book.categories %></p>
-        <a href="<%= book.info_link %>" target="_blank">More info</a>
+        <p class="cat"><%= book.publisher %>
+        <br>
+        <%= book.categories %></p>
         <br>
         <%= link_to "Add to Favorites" %>
         <br>
@@ -41,4 +43,5 @@
      <% end %>
     </div>
   </div>
+</div>
 </div>

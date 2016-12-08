@@ -1,0 +1,100 @@
+<div>
+
+<div>
+<h1>Browse the latest by province</h1>
+<ul>
+<li><a href="#nsprov">Nova Scotia</a></li>
+<li><a href="#nbprov">New Brunswick</a></li>
+<li><a href="#peiprov">Prince Edward Island</a></li>
+<li><a href="#nfprov">Newfoundland and Labrador</a></li>
+</ul>
+</div>
+
+<div id="wrapper">
+  <div id="columns">
+    <h2>Nova Scotia</h2>
+    <div id="nsprov">
+  <% @ns_books.each do |book| %>
+    <article class="pin">
+      <img src="<%= book.image_link(:zoom => 5) %>" />
+        <h4 class="title"><%= book.title %></h4>
+         <p>by <%= book.authors %></p>
+        <p class="cat"><%= book.publisher %> <%= book.categories %></p>
+        <a href="<%= book.info_link %>" target="_blank">More info</a>
+        <br>
+        <%= link_to "Add to Favorites" %>
+        <br>
+        <%= link_to "Add to Wishlist" %>
+      </article>
+     <% end %>
+     </div>
+    </div>
+    </div>
+
+<div id="wrapper">
+  <div id="columns">
+    <h2>New Brunswick</h2>
+    <div id="nbprov">
+  <% @nb_books.each do |book| %>
+    <article class="pin">
+      <img src="<%= book.image_link(:zoom => 5) %>" />
+        <h4 class="title"><%= book.title %></h4>
+         <p>by <%= book.authors %></p>
+        <p class="cat"><%= book.publisher %> <%= book.categories %></p>
+        <a href="<%= book.info_link %>" target="_blank">More info</a>
+        <br>
+        <%= link_to "Add to Favorites" %>
+        <br>
+        <%= link_to "Add to Wishlist" %>
+      </article>
+     <% end %>
+    </div>
+    </div>
+    </div>
+
+    <br>
+
+  <div id="wrapper">
+  <div id="columns">
+    <h2>Prince Edward Island</h2>
+    <div id="peiprov">
+  <% @pei_books.each do |book| %>
+    <article class="pin">
+      <img src="<%= book.image_link(:zoom => 5) %>" />
+        <h4 class="title"><%= book.title %></h4>
+         <p>by <%= book.authors %></p>
+        <p class="cat"><%= book.publisher %> <%= book.categories %></p>
+        <a href="<%= book.info_link %>" target="_blank">More info</a>
+        <br>
+        <%= link_to "Add to Favorites" %>
+        <br>
+        <%= link_to "Add to Wishlist" %>
+      </article>
+     <% end %>
+    </div>
+    </div>
+    </div>
+
+    <br>
+
+     <div id="wrapper">
+  <div id="columns">
+       <h2>Newfoundland and Labrador</h2>
+       <div id="nfprov">
+      <% @nfld_books.each do |book| %>
+      <article class="pin">
+      <img src="<%= book.image_link(:zoom => 5) %>" />
+        <h4 class="title"><%= book.title %></h4>
+         <p>by <%= book.authors %></p>
+        <p class="cat"><%= book.publisher %> <%= book.categories %></p>
+        <a href="<%= book.info_link %>" target="_blank">More info</a>
+        <br>
+        <%= link_to "Add to Favorites" %>
+        <br>
+        <%= link_to "Add to Wishlist" %>
+      </article>
+     <% end %>
+    </div>
+    </div>
+    </div>
+</div>

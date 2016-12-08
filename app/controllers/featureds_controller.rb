@@ -2,7 +2,7 @@ class FeaturedsController < ApplicationController
   def index
       @feat_auth = GoogleBooks.search('inauthor:"George Elliott Clarke"',
                       {:api_key => "AIzaSyCvKlUy4ZaVE_QxdMVZ7T37rTyEJZI-9Wc",
-                         :count => 25,
+                         :count => 20,
                          :order_by => 'newest'})
   end
 

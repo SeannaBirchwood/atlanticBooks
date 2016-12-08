@@ -27,10 +27,8 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to '/login'
-      byebug
     else
       redirect_to '/register'
-      byebug
     end
   end
 

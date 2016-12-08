@@ -1,6 +1,8 @@
+<body class="profile-bckg">
 <section class="users-profile">
   <header class="page-header">
     <h3><%= @user.username %> </h3>
+    <span>(<%= @user.city %>Halifax, <%= @user.province %> NS)</span>
   </header>
   <article class="user-detail">
     <div class="row">
@@ -8,14 +10,14 @@
         <% if @user.avatar.present? %>
         <%= image_tag @user.avatar %>
         <% else %>
-        <%= image_tag("default-profile.png", :style => "max-height: 100px;")%>
+        <%= image_tag("default-profile.png", :style => "max-height: 200px;")%>
         <% end %>
       </div>
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Bookclubs</dt>
           <dd>Invite this user to a bookclub</dd>
-          <dt><a href="/:id/wishlist">Wishlist</a></dt>
+          <dt><%= link_to "Wishlist", wishlist_path(@user) %></dt>
           <dd></dd>
           <dt>Bookshelf</dt>
           <dd>This user's bookshelf is empty</dd>
@@ -24,14 +26,13 @@
         </dl>
       </div>
       <div class="col-sm-8">
-        <dl class="dl-vertical">
-          <dd><%= @user.username %></dd>
-          <dd><%= @user.city %>, <%= @user.province%></dd>
-        </dl>
         <% if current_user.id == @user.id %>
-          <div><%=link_to "Edit ", ":id/edit" %> your profile</div>
+          <div><%=link_to "Edit ", edit_user_path(current_user) %> your profile</div>
         <% end %>
       </div>
     </article>
-    <h4> Go back to <%= link_to ' all users', '/users' %> </h4>
   </section>
+</body>
+<footer>
+<h4> Go back to <%= link_to ' all users', '/users' %> </h4>
+</footer>

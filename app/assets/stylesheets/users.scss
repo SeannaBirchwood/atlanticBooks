@@ -2,10 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.bgimg {
+  background: url('library.jpg');
+  height: 600px;
+}
+
+.h1members {
+  color: #4325EB;
+  font-weight: bolder;
+}
+
+.user-details {
+  color: pink;
+}
+
+.profile-bckg {
+  background-color: lightblue;
+}
+
+// .profile-pic {
+//   // max-width: 260px;
+//   // position: relative;
+//   // border: 1px solid #ccc;
+//   // border-radius: 5px;
+//   // padding: 15px;
+//   // padding-bottom: 80px;
+//   // margin-top: 20px;
+// }
+
 main section.users-index {
 
-  .background {
-    background: image-url('library.jpg');
+  .bgimg {
+    background: url('library.jpg');
     height: 600px;
   }
 

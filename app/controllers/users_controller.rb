@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :logged_in_user, only: [:edit, :update]
+
   def new
     @user = User.new
   end
@@ -23,7 +25,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    #@user.profilePic = "../../public/default-profile.png"
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to Read Atlantic"
@@ -35,13 +36,15 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    #@user.profilePic = "../../public/default-profile.png"
-    if @user.save
-      session[:user_id] = @user.id
-      flash[:notice] = "Your changes have been saved"
-      redirect_to '/users/:id'
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Your changes have been saved"
+      redirect_to @user
     else
-      redirect_to '/users/:id/edit'
+      render 'edit'
     end
   end
 
@@ -53,6 +56,13 @@ class UsersController < ApplicationController
     :email,
     :password,
     :password_confirmation)
+  end
+
+  def logged_in_user
+    unless session[:user_id]
+      flash[:danger] = "Please log in."
+      redirect_to '/login'
+    end
   end
 
 end
